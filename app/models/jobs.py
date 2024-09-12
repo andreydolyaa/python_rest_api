@@ -1,10 +1,13 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
+from pydantic.json_schema import JsonSchemaValue
 from typing import Optional
+from bson import ObjectId
+
 
 class Job(BaseModel):
     title: str
     salary_month: int
-    assigned_user: Optional[str] = None
+    assigned_user: Optional[dict] = None
 
     class Config:
         populate_by_name = True
